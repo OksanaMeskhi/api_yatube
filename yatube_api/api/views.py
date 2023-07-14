@@ -1,6 +1,6 @@
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets
 
 import api.serializers as sl
 from api.permissions import IsAuthorOrReadOnly
@@ -14,7 +14,6 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = Group.objects.all()
     serializer_class = sl.GroupSerializer
-    permissions_class = (permissions.IsAuthenticatedOrReadOnly)
 
 
 class PostViewSet(viewsets.ModelViewSet):
